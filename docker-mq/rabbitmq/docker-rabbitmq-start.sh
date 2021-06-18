@@ -13,11 +13,12 @@ then
 
     if [ $? -lt 1 ]; then
       mkdir -p ~$USER/env/docker/mq-container/volumes/rabbitmq-local
+      mkdir -p ~$USER/env/docker/mq-container/volumes/rabbitmq-local/var/lib/rabbitmq
     fi
 
     # rabbitmq 컨테이너 구동 & 볼륨 마운트
     docker container run --rm -d -p 15672:15672 --name rabbitmq-local \
-                -v ~/env/docker/mq-container/volumes/rabbitmq-local:/data/db \
+                -v ~/env/docker/mq-container/volumes/rabbitmq-local/var/lib/rabbitmq:/var/lib/rabbitmq \
                 -e RABBITMQ_DEFAULT_USER=mqadmin \
                 -e RABBITMQ_DEFAULT_PASS=1111 \
                 -d rabbitmq:3.8-management
@@ -37,14 +38,12 @@ else
 
     if [ $? -lt 1 ]; then
       mkdir -p ~$USER/env/docker/mq-container/volumes/rabbitmq-local
-      mkdir -p ~$USER/env/docker/mq-container/volumes/rabbitmq-local/enabled_plugins
       mkdir -p ~$USER/env/docker/mq-container/volumes/rabbitmq-local/var/lib/rabbitmq
     fi
 
     # rabbitmq 컨테이너 구동 & 볼륨 마운트
     docker container run --rm -d -p 15672:15672 --name rabbitmq-local \
                 -v ~/env/docker/mq-container/volumes/rabbitmq-local/var/lib/rabbitmq:/var/lib/rabbitmq \
-                -v ~/env/docker/mq-container/volumes/rabbitmq-local/enabled_plugins:/etc/rabbitmq/enabled_plugins \
                 -e RABBITMQ_DEFAULT_USER=mqadmin \
                 -e RABBITMQ_DEFAULT_PASS=1111 \
                 -d rabbitmq:3.8-management
