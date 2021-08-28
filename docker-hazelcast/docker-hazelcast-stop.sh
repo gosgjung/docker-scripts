@@ -3,7 +3,7 @@
 name_local_hazelcast='local-hazelcast'
 
 cnt_local_hazelcast=`docker container ls --filter name=local-hazelcast | wc -l`
-cnt_local_hazelcast=$(($cnt_local_postgresql -1))
+cnt_local_hazelcast=$(($cnt_local_hazelcast -1))
 
 if [ $cnt_local_hazelcast -eq 0 ]
 then
