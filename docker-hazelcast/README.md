@@ -1,5 +1,31 @@
 # Hazelcast 구동 스크립트
 
+<br>
+
+## 참고자료 리스트
+
+### 설치 문서
+
+- From Embedded to Client-Server
+  - https://hazelcast.com/blog/from-embedded-to-client-server/
+- Installing
+  - https://hazelcast.com/blog/from-embedded-to-client-server/
+
+ 
+
+### 설치 방식은 여러가지 방식이 있다.
+
+- 패키지 매니저로 설치하는 방식
+  - https://docs.hazelcast.com/imdg/4.1.2/getting-started.html#installing
+- Hazelcast 배포판을 다운로드 받아서 이것의 start script 를 구동하는 방식
+  - https://docs.hazelcast.com/imdg/4.1.2/installation/installing-using-download-archives.html
+- Docker image 를 다운받아서 구동하는 방식
+  - https://hub.docker.com/r/hazelcast/hazelcast
+- Helm Chart 를 이용하는 방식
+  - https://github.com/hazelcast/charts
+
+<br>
+
 ## 구동
 
 ```bash
