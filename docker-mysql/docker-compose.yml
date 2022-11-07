@@ -4,12 +4,12 @@ services:
     image: mysql:5.7.39-debian
     restart: always
     #    command: --lower_case_table_names=1
-    container_name: mysql-test
+    container_name: mysql-temp
     networks:
       - default
-      - network-test
+      # - network-test
     ports:
-      - "13306:3306"
+      - "33306:3306"
     environment:
       - MYSQL_USER=collector
       - MYSQL_PASSWORD=1111
